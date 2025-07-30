@@ -14,7 +14,7 @@ public class ProductMapper {
     private String baseUrl;
 
     public Product toEntity(ProductRequest request) {
-        var product = Product.builder()
+        return Product.builder()
                 .name(request.getName())
                 .brand(request.getBrand())
                 .category(request.getCategory())
@@ -24,7 +24,6 @@ public class ProductMapper {
                 .isAvailable(request.isAvailable())
                 .quantity(request.getQuantity())
                 .build();
-        return product;
     }
 
     public ProductResponse toResponse(Product product) {

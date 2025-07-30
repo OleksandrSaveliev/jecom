@@ -23,7 +23,7 @@ import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping("/api/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -32,17 +32,17 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/products")
+    @GetMapping("")
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable int id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    @PostMapping("/products")
+    @PostMapping("")
     public ResponseEntity<?> addProduct(@RequestBody @Valid ProductRequest request) {
 
         Product product = productService.saveProduct(request);

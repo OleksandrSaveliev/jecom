@@ -15,8 +15,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.tmdna.jecom.service.ProductImageService;
 
-@CrossOrigin
 @RestController
+@CrossOrigin
 @RequestMapping("/api/images")
 public class ProductImageController {
 
@@ -29,7 +29,7 @@ public class ProductImageController {
     @PostMapping("/upload")
     public ResponseEntity<String> uploadImage(
             @RequestParam("image") MultipartFile file,
-            @RequestParam("productId") int productId) throws IOException {
+            @RequestParam int productId) throws IOException {
 
         imageService.saveImageForProduct(file, productId);
         return ResponseEntity.ok("Image uploaded successfully: " + file.getOriginalFilename());

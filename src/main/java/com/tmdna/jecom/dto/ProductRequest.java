@@ -28,6 +28,7 @@ public class ProductRequest {
     private BigDecimal price;
     @NotBlank
     private Date releaseDate;
+    @NotBlank
     private boolean isAvailable;
     @Min(0)
     private int quantity;
