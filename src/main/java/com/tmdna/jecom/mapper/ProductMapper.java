@@ -3,8 +3,8 @@ package com.tmdna.jecom.mapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.tmdna.jecom.dto.ProductRequest;
-import com.tmdna.jecom.dto.ProductResponse;
+import com.tmdna.jecom.dto.product.ProductRequest;
+import com.tmdna.jecom.dto.product.ProductResponse;
 import com.tmdna.jecom.model.Product;
 
 @Component
