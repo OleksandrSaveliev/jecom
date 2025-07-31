@@ -6,6 +6,7 @@ import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.tmdna.jecom.common.Role;
+import com.tmdna.jecom.security.exception.TokenAuthenticationException;
 import com.tmdna.jecom.security.user.AuthUser;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -31,8 +32,7 @@ public class JwtService {
 
             return new AuthUser(userId, roles);
         } catch (Exception e) {
-            // Handle exceptions related to token parsing or validation
-            throw new RuntimeException("Failed to resolve JWT token", e);
+            throw new TokenAuthenticationException("Failed to resolve JWT token");
         }
     }
 

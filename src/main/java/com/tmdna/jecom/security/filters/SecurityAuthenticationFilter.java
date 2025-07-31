@@ -2,6 +2,7 @@ package com.tmdna.jecom.security.filters;
 
 import com.tmdna.jecom.common.AuthorizationConstants;
 import com.tmdna.jecom.security.authentication.UserAuthentication;
+import com.tmdna.jecom.security.exception.TokenAuthenticationException;
 import com.tmdna.jecom.security.service.JwtService;
 import com.tmdna.jecom.security.user.AuthUser;
 import jakarta.servlet.FilterChain;
@@ -44,13 +45,11 @@ public class SecurityAuthenticationFilter extends OncePerRequestFilter {
         SecurityContext securityContext = SecurityContextHolder.createEmptyContext();
         securityContext.setAuthentication(userAuthentication);
         SecurityContextHolder.setContext(securityContext);
-
-
     }
 
     private String stripBearerPrefix(String authorizationHeader) {
         if (!authorizationHeader.startsWith("Bearer ")) {
-            throw new IllegalArgumentException("Invalid Authorization header format");
+            throw new TokenAuthenticationException("Invalid Authorization header format");
         }
         return authorizationHeader.substring(7);
     }
