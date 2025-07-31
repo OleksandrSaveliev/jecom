@@ -1,5 +1,7 @@
 package com.tmdna.jecom.config;
 
+import com.tmdna.jecom.security.exception.handler.ApplicationAccessDeniedHandler;
+import com.tmdna.jecom.security.exception.handler.ApplicationAuthenticationEntryPoint;
 import com.tmdna.jecom.security.filters.SecurityAuthenticationFilter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -35,6 +37,12 @@ public class SecurityConfig {
                 .sessionManagement(
                         session -> session
                                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
+                )
+                .exceptionHandling(exceptionHandling ->
+                        exceptionHandling
+                                .accessDeniedHandler(new ApplicationAccessDeniedHandler())
+                                .authenticationEntryPoint(new ApplicationAuthenticationEntryPoint())
+
                 )
                 .build();
     }
