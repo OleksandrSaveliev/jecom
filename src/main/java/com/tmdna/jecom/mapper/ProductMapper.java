@@ -3,9 +3,9 @@ package com.tmdna.jecom.mapper;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-import com.tmdna.jecom.dto.ProductRequest;
-import com.tmdna.jecom.dto.ProductResponse;
-import com.tmdna.jecom.model.Product;
+import com.tmdna.jecom.dto.product.ProductRequest;
+import com.tmdna.jecom.dto.product.ProductResponse;
+import com.tmdna.jecom.entity.Product;
 
 @Component
 public class ProductMapper {
@@ -14,7 +14,7 @@ public class ProductMapper {
     private String baseUrl;
 
     public Product toEntity(ProductRequest request) {
-        var product = Product.builder()
+        return Product.builder()
                 .name(request.getName())
                 .brand(request.getBrand())
                 .category(request.getCategory())
@@ -24,7 +24,6 @@ public class ProductMapper {
                 .isAvailable(request.isAvailable())
                 .quantity(request.getQuantity())
                 .build();
-        return product;
     }
 
     public ProductResponse toResponse(Product product) {

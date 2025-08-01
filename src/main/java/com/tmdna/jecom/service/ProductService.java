@@ -5,11 +5,11 @@ import java.util.stream.Collectors;
 
 import org.springframework.stereotype.Service;
 
-import com.tmdna.jecom.dto.ProductRequest;
-import com.tmdna.jecom.dto.ProductResponse;
+import com.tmdna.jecom.dto.product.ProductRequest;
+import com.tmdna.jecom.dto.product.ProductResponse;
 import com.tmdna.jecom.exception.ResourceNotFound;
 import com.tmdna.jecom.mapper.ProductMapper;
-import com.tmdna.jecom.model.Product;
+import com.tmdna.jecom.entity.Product;
 import com.tmdna.jecom.repository.ProductRepository;
 
 @Service

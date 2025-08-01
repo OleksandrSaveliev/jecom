@@ -1,4 +1,4 @@
-package com.tmdna.jecom.model;
+package com.tmdna.jecom.entity;
 
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;

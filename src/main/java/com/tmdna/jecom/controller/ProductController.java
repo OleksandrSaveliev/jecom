@@ -14,16 +14,16 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.tmdna.jecom.dto.ProductRequest;
-import com.tmdna.jecom.dto.ProductResponse;
-import com.tmdna.jecom.model.Product;
+import com.tmdna.jecom.dto.product.ProductRequest;
+import com.tmdna.jecom.dto.product.ProductResponse;
+import com.tmdna.jecom.entity.Product;
 import com.tmdna.jecom.service.ProductService;
 
 import jakarta.validation.Valid;
 
 @RestController
 @CrossOrigin
-@RequestMapping("/api")
+@RequestMapping("/api/products")
 public class ProductController {
 
     private final ProductService productService;
@@ -32,17 +32,17 @@ public class ProductController {
         this.productService = productService;
     }
 
-    @GetMapping("/products")
+    @GetMapping("")
     public ResponseEntity<List<ProductResponse>> getAllProducts() {
         return ResponseEntity.ok(productService.getAllProducts());
     }
 
-    @GetMapping("/products/{id}")
+    @GetMapping("/{id}")
     public ResponseEntity<ProductResponse> getProductById(@PathVariable int id) {
         return ResponseEntity.ok(productService.getProductById(id));
     }
 
-    @PostMapping("/products")
+    @PostMapping("")
     public ResponseEntity<?> addProduct(@RequestBody @Valid ProductRequest request) {
 
         Product product = productService.saveProduct(request);
