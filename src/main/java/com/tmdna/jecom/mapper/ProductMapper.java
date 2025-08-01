@@ -5,7 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.tmdna.jecom.dto.product.ProductRequest;
 import com.tmdna.jecom.dto.product.ProductResponse;
-import com.tmdna.jecom.model.Product;
+import com.tmdna.jecom.entity.Product;
 
 @Component
 public class ProductMapper {

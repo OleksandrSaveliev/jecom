@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.tmdna.jecom.dto.product.ProductRequest;
 import com.tmdna.jecom.dto.product.ProductResponse;
-import com.tmdna.jecom.model.Product;
+import com.tmdna.jecom.entity.Product;
 import com.tmdna.jecom.service.ProductService;
 
 import jakarta.validation.Valid;

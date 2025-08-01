@@ -30,7 +30,6 @@ public class ApplicationAccessDeniedHandler implements AccessDeniedHandler {
         ObjectMapper mapper = new ObjectMapper();
         mapper.writeValue(responseStream, errorResponse);
         responseStream.flush();
-
     }
 }
 
