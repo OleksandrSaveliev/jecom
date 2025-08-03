@@ -6,7 +6,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
 import com.tmdna.jecom.exception.ResourceNotFound;
-import com.tmdna.jecom.model.ProductImage;
+import com.tmdna.jecom.entity.ProductImage;
 import com.tmdna.jecom.repository.ProductImageRepository;
 import com.tmdna.jecom.repository.ProductRepository;
 import com.tmdna.jecom.utils.ImageUtility;
