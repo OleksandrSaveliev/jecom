@@ -25,6 +25,4 @@ public class User {
     @Enumerated(EnumType.STRING)
     @ElementCollection(fetch = FetchType.EAGER)
     private Set<Role> roles;
-    private Boolean active;
-
 }
