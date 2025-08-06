@@ -27,7 +27,7 @@ public class CustomUserDetails implements UserDetails {
 
     @Override
     public String getPassword() {
-        return user.getPasswordHash(); // or password if not hashed yet
+        return user.getPasswordHash();
     }
 
     @Override
@@ -35,7 +35,6 @@ public class CustomUserDetails implements UserDetails {
         return user.getUsername();
     }
 
-    // Implement rest with defaults
     @Override
     public boolean isAccountNonExpired() {
         return true;

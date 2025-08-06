@@ -23,3 +23,8 @@ INSERT INTO product (name, brand, category, description, price, release_date, is
 ('Nintendo Switch OLED', 'Nintendo', 'Gaming', 'The Nintendo Switch OLED edition features a vibrant 7-inch OLED display, enhanced audio, improved kickstand, and 64GB internal storage. It supports both handheld and docked modes, perfect for gaming at home or on the go.', 349.99, '2021-10-08', TRUE, 25, -8),
 ('PlayStation 5', 'Sony', 'Gaming', 'Sony PlayStation 5 delivers next-gen performance with a blazing-fast SSD, haptic feedback-enabled DualSense controller, ray-traced graphics, and 3D audio. Ideal for immersive single-player and competitive multiplayer gaming.', 499.99, '2020-11-12', TRUE, 10, -9),
 ('Kindle Paperwhite', 'Amazon', 'E-Readers', 'Amazon Kindle Paperwhite features a high-resolution glare-free screen, adjustable warm light, waterproof design (IPX8), and weeks-long battery life. Great for reading indoors or outdoors, even in direct sunlight.', 139.99, '2022-11-01', TRUE, 70, -10);
+
+INSERT INTO users (id, username, password_hash, first_name, last_name)
+VALUES (1, 'admin@example.com', '$2a$10$L1GkbuTNeeqBq2nB0FsJZe7sYc8ic.6Q/8Uwy5k3Sagb1EZqhvpeq', 'Admin', 'Admin');
+
+INSERT INTO user_roles (user_id, role) VALUES (1, 'ROLE_ADMIN');
