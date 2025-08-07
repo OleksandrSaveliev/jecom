@@ -15,7 +15,6 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.tmdna.jecom.service.ProductImageService;
 
-@CrossOrigin
 @RestController
 @RequestMapping("/api/images")
 public class ProductImageController {

@@ -22,7 +22,6 @@ import com.tmdna.jecom.service.ProductService;
 import jakarta.validation.Valid;
 
 @RestController
-@CrossOrigin
 @RequestMapping("/api")
 public class ProductController {
 
