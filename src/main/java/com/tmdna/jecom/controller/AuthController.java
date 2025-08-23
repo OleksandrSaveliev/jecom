@@ -3,6 +3,7 @@ package com.tmdna.jecom.controller;
 import com.tmdna.jecom.security.dto.JwtResponse;
 import com.tmdna.jecom.security.dto.LoginRequest;
 import com.tmdna.jecom.security.service.TokenService;
+import jakarta.validation.Valid;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
@@ -25,7 +26,7 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<?> loginWithEmailAndPassword(@RequestBody LoginRequest login) {
+    public ResponseEntity<?> loginWithEmailAndPassword(@RequestBody @Valid LoginRequest login) {
         Authentication authentication = authenticationManager.authenticate(
                 new UsernamePasswordAuthenticationToken(login.email(), login.password())
         );
