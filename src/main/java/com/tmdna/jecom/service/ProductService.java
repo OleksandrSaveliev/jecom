@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.tmdna.jecom.dto.ProductRequest;
 import com.tmdna.jecom.dto.ProductResponse;
-import com.tmdna.jecom.exception.ResourceNotFound;
+import com.tmdna.jecom.exception.ResourceNotFoundException;
 import com.tmdna.jecom.mapper.ProductMapper;
 import com.tmdna.jecom.entity.Product;
 import com.tmdna.jecom.repository.ProductRepository;
@@ -31,7 +31,7 @@ public class ProductService {
 
     public ProductResponse getProductById(int id) {
         Product product = productRepository.findById(id)
-                .orElseThrow(() -> new ResourceNotFound("Product with Id: " + id + " not found"));
+                .orElseThrow(() -> new ResourceNotFoundException("Product with Id: " + id + " not found"));
         return productMapper.toResponse(product);
     }
 

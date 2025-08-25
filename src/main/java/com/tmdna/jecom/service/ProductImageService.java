@@ -5,7 +5,7 @@ import java.io.IOException;
 import org.springframework.stereotype.Service;
 import org.springframework.web.multipart.MultipartFile;
 
-import com.tmdna.jecom.exception.ResourceNotFound;
+import com.tmdna.jecom.exception.ResourceNotFoundException;
 import com.tmdna.jecom.entity.ProductImage;
 import com.tmdna.jecom.repository.ProductImageRepository;
 import com.tmdna.jecom.repository.ProductRepository;
@@ -24,7 +24,7 @@ public class ProductImageService {
 
     public void saveImageForProduct(MultipartFile file, int productId) throws IOException {
         var product = productRepository.findById(productId)
-                .orElseThrow(() -> new ResourceNotFound("Product not found: " + productId));
+                .orElseThrow(() -> new ResourceNotFoundException("Product not found: " + productId));
 
         ProductImage image = ProductImage.builder()
                 .name(file.getOriginalFilename())
@@ -53,6 +53,6 @@ public class ProductImageService {
     public String getContentType(int id) {
         return imageRepository.findById(id)
                 .map(ProductImage::getType)
-                .orElseThrow(() -> new ResourceNotFound("Image not found: " + id));
+                .orElseThrow(() -> new ResourceNotFoundException("Image not found: " + id));
     }
 }
